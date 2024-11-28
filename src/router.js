@@ -3,9 +3,6 @@ import prisma from "./prisma/database.js";
 
 const router = Router();
 
-//Implementar rotas
-//Criar controller
-
 router.get("/tasks", async (req, res) => {
     const tasks = await prisma.tasks.findMany()
     res.json(tasks)
