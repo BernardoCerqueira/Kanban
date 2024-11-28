@@ -15,7 +15,7 @@ export const tasksService = {
             },
             body: JSON.stringify(attributes)
         })
-        const newTask = await response.json()
+        const newTask: Task = await response.json()
         return newTask
     },
 
@@ -27,7 +27,7 @@ export const tasksService = {
             },
             body: JSON.stringify(attributes)
         })
-        const updatedTask: Task = await response.json()
+        const updatedTask = await response.json()
         return updatedTask
     },
 

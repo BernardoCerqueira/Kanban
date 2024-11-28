@@ -30,17 +30,17 @@ export const TasksContextProvider: React.FC<TasksContextProviderProps> = ({child
     const updateTask = async (id: string, attributes: Partial<Omit<Task, "id">>) => {
         await tasksService.updateTask(id, attributes)
         setTasks((currentState) => {
-            const updateTasks = [...currentState]
-            const taskIndex = updateTasks.findIndex(task => task.id === id)
-            Object.assign(updateTasks[taskIndex], attributes)
-            return updateTasks
+            const updatedTasks = [...currentState]
+            const taskIndex = updatedTasks.findIndex(task => task.id === id)
+            Object.assign(updatedTasks[taskIndex], attributes)
+            return updatedTasks
         })
 
     }
 
     const deleteTask = async (id: string) => {
-        await tasksService.deleteTask(id)
         setTasks((currentState) => currentState.filter((task) => task.id !== id))
+        await tasksService.deleteTask(id)
     }
 
     return(
